@@ -1,0 +1,31 @@
+// Empty fallback data (all demo data removed)
+export const mock = {
+  users: [],
+  vendors: [],
+  bookings: [],
+  jobs: [],
+  orders: [],
+  products: [],
+  sessions: [],
+  subs: [],
+  temples: [],
+  donations: [],
+  events: [],
+  payouts: [],
+  reviews: [],
+  library: [],
+  banners: [],
+  dashboard: {
+    kpis: { revenue: '₹0', bookings: 0, vendors: 0, kycPending: 0 },
+    queues: { kycPending: 0, payoutsRequested: 0, eventsPending: 0, reviewsFlagged: 0 },
+    months: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+    revenue: [0, 0, 0, 0, 0, 0],
+    bookings: [0, 0, 0, 0, 0, 0],
+    roles: [
+      { n: 'Pandit', v: 0, c: '#8B1A1A' },
+      { n: 'Merchant', v: 0, c: '#AD1457' },
+      { n: 'Mandali', v: 0, c: '#0277BD' },
+      { n: 'Astrologer', v: 0, c: '#6A1B9A' },
+    ],
+  },
+};
