@@ -188,9 +188,7 @@ export default function ProductModal({ product, onClose, onSave }) {
       // 2. Direct fallback endpoints if client was intercepted
       if (uploadedUrls.length === 0) {
         const fallbackEndpoints = [
-          'http://localhost:4000/api/admin/upload',
-          'http://localhost:4000/api/upload',
-          'http://localhost:4000/api/partner/upload',
+          '/api/admin/upload',
           '/api/upload',
           '/api/partner/upload',
         ];

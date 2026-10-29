@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-// Dynamically use current host on port 4000 / local backend, fallback to relative /api/admin/
+// Dynamically use current origin on Render / production, or localhost:4000 if running on Vite dev server (port 5173)
 export const BASE_URL =
   import.meta.env.VITE_API_BASE_URL ||
-  (typeof window !== 'undefined' && window.location.origin
-    ? `${window.location.origin}/api/admin/`
+  (typeof window !== 'undefined' && window.location && window.location.origin
+    ? (window.location.port === '5173' ? 'http://localhost:4000/api/admin/' : `${window.location.origin}/api/admin/`)
     : '/api/admin/');
 
 export const USE_MOCK_FALLBACK = (import.meta.env.VITE_USE_MOCK_FALLBACK ?? 'false') === 'true';

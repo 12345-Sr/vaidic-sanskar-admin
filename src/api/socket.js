@@ -1,7 +1,17 @@
 import { io } from 'socket.io-client';
 import { BASE_URL } from './client';
 
-const socketUrl = BASE_URL.replace(/\/api\/admin\/?$/, '').replace(/\/api\/?$/, '') || 'http://localhost:4000';
+const resolveSocketUrl = () => {
+  if (BASE_URL.startsWith('http://') || BASE_URL.startsWith('https://')) {
+    return BASE_URL.replace(/\/api\/admin\/?$/, '').replace(/\/api\/?$/, '');
+  }
+  if (typeof window !== 'undefined' && window.location && window.location.origin) {
+    return window.location.port === '5173' ? 'http://localhost:4000' : window.location.origin;
+  }
+  return '/';
+};
+
+const socketUrl = resolveSocketUrl();
 
 class AdminSocket {
   constructor() {
